@@ -70,7 +70,7 @@ function ihcf.setup()
     function! ihCreateFile()
       lua require('ihcf').create_file_with_content()
     endfunction
-    call nerdtree#MenuAdd('Create C file', 'ihCreateFile')
+    call NERDTreeAddMenuItem('(A)dd spec file node', 'A', 'ihCreateFile')
   ]])
 end
 
