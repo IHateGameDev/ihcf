@@ -1,5 +1,5 @@
 vim.cmd([[
-  function! IHcreateFile
+  function! IHcreateFile()
     lua require('ihcf').createFile()
   endfunction
 
