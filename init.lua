@@ -23,11 +23,11 @@ function ihcf.create_file_with_content()
 
     for i = 2, #filesets do
       if filesets[i] == "i" then
-        content = content .. "API void " .. fnmodext .. filename .. "Init(" .. modulename .. filename .. "* this);\n\n"
+        content = content .. "void " .. fnmodext .. filename .. "Init(" .. modulename .. filename .. " *self);\n"
       elseif filesets[i] == "c" then
-        content = content .. "API " .. modulename .. filename .. " " .. fnmodext .. filename .. "Create();\n\n"
+        content = content .. "void " .. fnmodext .. filename .. "Func(" .. modulename .. filename .. " *self);\n"
       elseif filesets[i] == "n" then
-        content = content .. "API " .. modulename .. filename .. "* " .. fnmodext .. filename .. "New();\n\n"
+        content = content .. modulename .. filename .. "* " .. fnmodext .. filename .. "Get();\n"
       end
     end
 
@@ -39,11 +39,11 @@ function ihcf.create_file_with_content()
 
     for i = 2, #filesets do
       if filesets[i] == "i" then
-        content = content .. "API void " .. fnmodext .. filename .. "Init(" .. modulename .. filename .. "* this) {\n\n}\n\n"
+        content = content .. "void " .. fnmodext .. filename .. "Init(" .. modulename .. filename .. " *self);\n"
       elseif filesets[i] == "c" then
-        content = content .. "API " .. modulename .. filename .. " " .. fnmodext .. filename .. "Create() {\n\n}\n\n"
+        content = content .. "void " .. fnmodext .. filename .. "Func(" .. modulename .. filename .. " *self);\n"
       elseif filesets[i] == "n" then
-        content = content .. "API " .. modulename .. filename .. "* " .. fnmodext .. filename .. "New() {\n\n}\n\n"
+        content = content .. modulename .. filename .. "* " .. fnmodext .. filename .. "Get();\n"
       end
     end
   else
