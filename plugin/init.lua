@@ -1,9 +1,7 @@
 vim.cmd([[
-  function! IHcreateFile()
+  function! s:createFile()
     lua require('ihcf').createFile()
   endfunction
 
-  autocmd VimEnter * call NERDTreeAddMenuItem("text": '(A)dd spec file node',
-                                            \ "shortcut":'A',
-                                            \ "callback": 'IHcreateFile')
+  autocmd VimEnter * call NERDTreeAddMenuItem('Add Spec File Node', 'A', 'createFile')
 ]])
