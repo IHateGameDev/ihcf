@@ -5,5 +5,5 @@ vim.cmd([[
 
   autocmd VimEnter * call NERDTreeAddMenuItem("text": '(A)dd spec file node',
                                             \ "shortcut":'A',
-                                            \ "callback": 'ihCreateFile')
+                                            \ "callback": 'createFile')
 ]])
