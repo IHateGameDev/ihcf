@@ -1,6 +1,6 @@
 local M = {}
 
-function M.createFile()
+function M.createFile(nodePath)
   local filetype = vim.fn.input("Enter C file type (S/SFR): ")
   local filename = vim.fn.input("Enter C file name: ")
   local modulename = vim.fn.input("Enter C module name (leave empty for no use module): ")
@@ -51,7 +51,7 @@ function M.createFile()
     return
   end
 
-  local full_path = vim.fn.expand("%:p:h") .. "/" .. filename .. "." .. ext
+  local full_path = nodePath .. "/" .. filename .. "." .. ext
 
   local file = io.open(full_path, "w")
 
