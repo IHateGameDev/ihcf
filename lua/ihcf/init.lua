@@ -1,6 +1,6 @@
-local ihcf = {}
+local M = {}
 
-function ihcf.create_file_with_content()
+function M.createFile()
   local filetype = vim.fn.input("Enter C file type (S/SFR): ")
   local filename = vim.fn.input("Enter C file name: ")
   local modulename = vim.fn.input("Enter C module name (leave empty for no use module): ")
@@ -67,11 +67,11 @@ end
 
 vim.cmd([[
   function! s:ihhCreateFile()
-    lua require('ihcf').create_file_with_content()
+    lua require('ihcf').createFile()
   endfunction
   autocmd VimEnter * call NERDTreeAddMenuItem("text": '(A)dd spec file node',
                                             \ "shortcut":'A',
                                             \ "callback": 'ihCreateFile')
 ]])
 
-return ihcf
+return M
