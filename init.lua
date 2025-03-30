@@ -66,7 +66,7 @@ function ihcf.create_file_with_content()
 end
 
 vim.cmd([[
-  function! ihCreateFile()
+  function! s:ihhCreateFile()
     lua require('ihcf').create_file_with_content()
   endfunction
   autocmd VimEnter * call NERDTreeAddMenuItem("text": '(A)dd spec file node',
