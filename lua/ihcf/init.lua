@@ -1,6 +1,8 @@
 local M = {}
 
 function M.createFile(nodePath)
+  if type(nodePath) == "table" then nodePath table.contact(nodePath, '/')
+
   local filetype = vim.fn.input("Enter C file type (S/SFR): ")
   local filename = vim.fn.input("Enter C file name: ")
   local modulename = vim.fn.input("Enter C module name (leave empty for no use module): ")
