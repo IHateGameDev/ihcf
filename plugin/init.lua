@@ -1,7 +1,7 @@
 vim.cmd([[
   function! IHCreateFile()
     let curDir = g:NERDTreeDirNode.GetSelected().path
-    lua require('ihcf').createFile(curDir)
+    call luaeval('require("ihcf").createFile(_A)', curDir)
   endfunction
 
   autocmd VimEnter * call NERDTreeAddMenuItem({
