@@ -26,11 +26,11 @@ function M.createFile(nodePath)
 
     for i = 2, #filesets do
       if filesets[i] == "i" then
-        content = content .. "void " .. fnmodext .. filename .. "Init(" .. modulename .. filename .. " *self);\n"
+        content = content .. "void " .. fnmodext .. filename .. "Init(" .. modulename .. filename .. " *this);\n\n"
       elseif filesets[i] == "c" then
-        content = content .. "void " .. fnmodext .. filename .. "Func(" .. modulename .. filename .. " *self);\n"
+        content = content .. modulename .. filename .. fnmodext .. filename .. "Create();\n\n"
       elseif filesets[i] == "n" then
-        content = content .. modulename .. filename .. "* " .. fnmodext .. filename .. "Get();\n"
+        content = content .. modulename .. filename .. "* " .. fnmodext .. filename .. "New();\n\n"
       end
     end
 
@@ -42,11 +42,11 @@ function M.createFile(nodePath)
 
     for i = 2, #filesets do
       if filesets[i] == "i" then
-        content = content .. "void " .. fnmodext .. filename .. "Init(" .. modulename .. filename .. " *self);\n"
+        content = content .. "void " .. fnmodext .. filename .. "Init(" .. modulename .. filename .. " *this) {\n\n}\n\n"
       elseif filesets[i] == "c" then
-        content = content .. "void " .. fnmodext .. filename .. "Func(" .. modulename .. filename .. " *self);\n"
+        content = content .. "void " .. fnmodext .. filename .. "Create() {\n\t" .. modulename .. filename .. " out;\n}\n\n"
       elseif filesets[i] == "n" then
-        content = content .. modulename .. filename .. "* " .. fnmodext .. filename .. "Get();\n"
+        content = content .. modulename .. filename .. "* " .. fnmodext .. filename .. "New() {\n\n}\n\n"
       end
     end
   else
@@ -62,7 +62,6 @@ function M.createFile(nodePath)
     file:write(content)
     file:close()
     print("File created: " .. full_path)
-    vim.cmd("edit " .. full_path)
   else
     print("Failed to create file!")
   end
