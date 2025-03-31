@@ -1,7 +1,6 @@
 vim.cmd([[
   function! IHCreateFile()
-    let curDir = g:NERDTreeDirNode.GetSelected().path
-    let path = join(curDir, '/')
+    let curDir = g:NERDTreeDirNode.GetSelected().path.str()
     call luaeval('require("ihcf").createFile(_A)', path)
   endfunction
 
